@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BUDH BHAWAN</title>
+<!--	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">-->
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<!--	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+		<div class="container">
+				<a class="navbar-brand" href="/">Cc</a>
+		</div>
+	</nav>-->
+	<nav class="navbar navbar-default techfont custom-navbar">
+       <div class="container">
+         <ul class="nav navbar-nav">
+
+
+         <li><a class="navbar-brand bigbrand"href="{% url 'home' %}">BUDH </a></li>
+        <li><a class="navbar-brand bigbrand"href="{% url 'complain_list'%}">COMPLAINT LIST</a></li>
+
+
+
+         <!--<li><a class="navbar-brand bigbrand"href="https://www.github.cpm">Github</a></li>-->
+         </ul>
+         <ul class="nav navbar-nav navbar-right">
+
+
+
+				{% if user.is_authenticated %}
+				<li><a class="navbar-brand bigbrand">SKILL SHARING</a></li>
+				<li><a class="navbar-brand bigbrand">EVENT</a></li>
+				<li><a class="navbar-brand bigbrand" >WORKSHOP</a></li>
+				   <li><a class="navbar-brand bigbrand"href="{% url 'create'%}">ADD COMPLAINT </a></li>
+				   <li class="navbar-brand bigbrand">WELCOME-{{user.first_name}}  {{user.last_name}}</li>
+					    <li><a class="navbar-brand bigbrand"href="{% url 'logout'%}">LOGOUT</a></li>
+						{%else%}
+						<li><a href="{% url 'login'%}"><span class="glyphicon glyphicon-user"></span></a></li>
+           {% endif %}
+
+		</nav>
+				<body>
+    <div class="container">
+
+	    {% block content %}
+	    {% endblock content %}
+
+    </div>
+</body>
+</html>
